@@ -2,10 +2,12 @@
 
 ## Intention
 
-This program intends to remove strings containing 'oggy' from a list of strings.
+This program intends to remove strings containing 'oggy' from a list of strings as user does not like 'oggy'.
 
 ## Method
 
-The code doesn't work according to the intention. Make it succeed.
+Function removeOggy is added to remove 'oggy' from arraylist.
+It iterates over all strings stored in arrayList and if string mathches to 'oggy' it calls removeString function.
+removeString function removes string from the specified index and moves all strings after that index to one index back.
 
-Don't forget to update this file after fixing the code.
+
