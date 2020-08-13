@@ -1,10 +1,30 @@
-package remover;
+
 
 import java.util.*;
 import java.util.stream.Collectors;
 
 public class Main {
     public static void removeOggy(ArrayList<String> names) {
+        
+        int i = 0;
+	//i is used as index of vector.
+	while (i < names.size())
+	{
+		//startwith function returns true if string starts with provided substring else returns false.
+		if (startwith(names.get(i), "oggy"))
+		{
+			//calling removeString function
+			//vector colour is passed as address to remove the string from original address 
+			removeString(names, i);
+
+		}
+		else
+		{
+			//if not start with substring increment index by 1.
+			i++;
+		}
+
+	};
         return;
     }
     public static boolean oggyIsRemoved(ArrayList<String> names) {
@@ -21,5 +41,41 @@ public class Main {
             System.out.println("Failed!!");
             System.exit(1);
         }
+    }
+    public static boolean startwith(String cmp, String start)
+    {
+    	//if string is smaller than substring return false.
+    	if (cmp.length() < start.length())
+    	{
+    		return false;
+    	}
+    	else
+    	{
+    		int i = 0;
+    		while (i < start.length())
+    		{
+    			//comparing characters position by position
+    			if (cmp.charAt(i) == start.charAt(i))
+    			{
+    				i++;
+    			}
+    			else
+    			{
+    				return false;
+    			}
+    		};
+    		return true;
+    	}
+    }
+    public static void removeString(ArrayList<String> vect, int index)
+    {
+    	for (int i = index; i < vect.size() - 1; i++)
+    	{
+    		vect.set(i, vect.get(i+1));
+    		//vect.get(i) = vect.get(i + 1);
+    	}
+    	//removing last string from vector.
+    	int last_index=vect.size()-1;
+    	vect.remove(last_index);
     }
 }
