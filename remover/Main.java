@@ -31,28 +31,19 @@ public class Main {
         List<String> oggys = names.stream().filter(it -> it.contains("oggy")).collect(Collectors.toList());
         return oggys.size() == 0;
     }
-    public static void main(String[] args) {
-        ArrayList<String> names = new ArrayList<String>(Arrays.asList("nobita", "bheem", "oggy", "oggy cockroach", "ninja"));
-        removeOggy(names);
-        if(oggyIsRemoved(names)) {
-            System.out.println("Passed!");
-            System.exit(0);
-        } else {
-            System.out.println("Failed!!");
-            System.exit(1);
-        }
-    }
     public static boolean startwith(String cmp, String start)
     {
     	//if string is smaller than substring return false.
-    	if (cmp.length() < start.length())
+    	int cmp_length=cmp.length();
+    	int start_length=start.length();
+    	if (cmp_length < start_length)
     	{
     		return false;
     	}
     	else
     	{
     		int i = 0;
-    		while (i < start.length())
+    		while (i < start_length)
     		{
     			//comparing characters position by position
     			if (cmp.charAt(i) == start.charAt(i))
@@ -69,13 +60,26 @@ public class Main {
     }
     public static void removeString(ArrayList<String> vect, int index)
     {
-    	for (int i = index; i < vect.size() - 1; i++)
+    	int vect_size=vect.size();
+    	for (int i = index; i < vect_size - 1; i++)
     	{
     		vect.set(i, vect.get(i+1));
     		//vect.get(i) = vect.get(i + 1);
     	}
     	//removing last string from vector.
-    	int last_index=vect.size()-1;
+    	int last_index=vect_size-1;
     	vect.remove(last_index);
     }
+    public static void main(String[] args) {
+        ArrayList<String> names = new ArrayList<String>(Arrays.asList("nobita", "bheem", "oggy", "oggy cockroach", "ninja"));
+        removeOggy(names);
+        if(oggyIsRemoved(names)) {
+            System.out.println("Passed!");
+            System.exit(0);
+        } else {
+            System.out.println("Failed!!");
+            System.exit(1);
+        }
+    }
+    
 }
